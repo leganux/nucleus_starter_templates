@@ -93,7 +93,8 @@ module.exports = {
                     title: 'Demo',
                     href: '/dashboard/demo',
                     icon: 'fas fa-tachometer-alt',
-                }
+                },
+                 /** Here Menu*/
 
             ]
         },
@@ -125,7 +126,7 @@ module.exports = {
                     href: '/dashboard/users',
                     icon: 'fas fa-user',
                 },
-                /** Here Menu*/
+                
 
             ]
         },

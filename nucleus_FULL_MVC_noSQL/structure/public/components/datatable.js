@@ -386,7 +386,7 @@ $(document).ready(function () {
 
                     } else {
                         let formValues = sanitize(info.value)
-                        let savedUSer = await dt_rag.createOne(formValues)
+                        let savedUSer = await dt_rag.updateById(id, formValues)
                         if (savedUSer.success) {
                             await Swal.fire({
                                 title: 'Data Saved Correctly',

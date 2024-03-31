@@ -35,14 +35,14 @@ module.exports = {
                     id: "1234567890",
 
                 }, {
-                avatar: "/cdn/dashboard/dist/img/user1-128x128.jpg",
-                name: "Jane doe",
-                text: "I need your help...",
-                time: "5 hours ago",
-                href: "#",
-                id: "12345698765",
+                    avatar: "/cdn/dashboard/dist/img/user1-128x128.jpg",
+                    name: "Jane doe",
+                    text: "I need your help...",
+                    time: "5 hours ago",
+                    href: "#",
+                    id: "12345698765",
 
-            }
+                }
 
             ]
     },
@@ -93,7 +93,8 @@ module.exports = {
                     title: 'Demo',
                     href: '/dashboard/demo',
                     icon: 'fas fa-tachometer-alt',
-                }
+                },
+                /** Here Menu*/
 
             ]
         },
@@ -125,7 +126,7 @@ module.exports = {
                     href: '/dashboard/users',
                     icon: 'fas fa-user',
                 },
-                /** Here Menu*/
+
 
             ]
         },
