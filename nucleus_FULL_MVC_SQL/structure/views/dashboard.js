@@ -71,7 +71,7 @@ router.get('/demo', middlewareSession, async function (req, res) {
 
     })
 })
-router.get('/users', middlewareSession,  async function (req, res) {
+router.get('/users', middlewareSession, async function (req, res) {
     let myAssets = new assets()
     myAssets = myAssets.getAssetsAdmin()
     /* custom assets**/
@@ -79,7 +79,7 @@ router.get('/users', middlewareSession,  async function (req, res) {
     myAssets.scripts.push('/cdn/components/datatable.js')
 
 
-    let datatable = await datatableHelper.dt_constructor({model: userModel, actions: 'Create,Update,read,delete'})
+    let datatable = await datatableHelper.dt_constructor({ model: userModel, actions: 'Create,Update,read,delete' })
 
 
     res.status(200).render('dashboard/users', {
@@ -110,6 +110,9 @@ router.get('/users', middlewareSession,  async function (req, res) {
     })
 })
 
+
+/** Here routes*/
+
 router.get('/*', middlewareSession, async function (req, res) {
     let myAssets = new assets()
     myAssets = myAssets.getAssetsAdmin()
@@ -125,6 +128,6 @@ router.get('/*', middlewareSession, async function (req, res) {
     })
 })
 
-/** Here routes*/
+
 
 module.exports = router

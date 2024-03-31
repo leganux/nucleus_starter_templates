@@ -110,6 +110,9 @@ router.get('/users', middlewareSession, async function (req, res) {
     })
 })
 
+
+/** Here routes*/
+
 router.get('/*', middlewareSession, async function (req, res) {
     let myAssets = new assets()
     myAssets = myAssets.getAssetsAdmin()
@@ -125,6 +128,6 @@ router.get('/*', middlewareSession, async function (req, res) {
     })
 })
 
-/** Here routes*/
+
 
 module.exports = router

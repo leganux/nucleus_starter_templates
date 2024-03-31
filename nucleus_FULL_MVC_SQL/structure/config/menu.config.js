@@ -124,7 +124,8 @@ module.exports = {
                     active: false,
                     href: '/dashboard/users',
                     icon: 'fas fa-user',
-                }
+                },
+                /** Here Menu*/
 
             ]
         },

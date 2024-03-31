@@ -1,0 +1,105 @@
+{
+  "version": "1.0.0",
+  "match": {
+    "variable": "{{_X_}}",
+    "function": "{$_X_$}",
+    "files": "___X___"
+  },
+  "support_files": [
+    "js",
+    "json",
+    "html",
+    "pug",
+    "ts",
+    "tsx",
+    "htm",
+    "xml",
+    "txt",
+    "py",
+    "php",
+    "vue",
+    "vuex",
+    "ng",
+    "md",
+    "yaml",
+    "lua"
+  ],
+  "name": "nucleus_model_full_mvc_sql_generator",
+  "description": "this template allow you to create an generate DB models for mvc SQL generator in full mode ",
+  "functions_file": "functions.js",
+  "structure_folder": "structure",
+  "execFunctions": true,
+  "overwrite": true,
+  "cmd": "",
+  "packages": [
+    "voca",
+    "moment"
+  ],
+  "replacer": [
+    {
+      "type": "f",
+      "name": "field_generator",
+      "params": [
+        "name",
+        "description",
+        "customName",
+        "type",
+        "defaultValue",
+        "mandatory",
+        "isPassword"
+      ],
+      "global": false,
+      "recursive": true
+    },
+    {
+      "type": "n",
+      "name": "model_name_file",
+      "ask": "Which is the value for model_name for file?",
+      "typeof": "string",
+      "global": true
+    },
+    {
+      "type": "v",
+      "name": "model_name_variable",
+      "ask": "Which is the value for model_name_variable?",
+      "global": true
+    }
+  ],
+  "appendix": [
+    {
+      "match": "/** Here routes*/",
+      "position": "before",
+      "dir": "/routes/_api.routes.js",
+      "type": "f",
+      "params": [
+        "api_path"
+      ],
+      "name": "routes_name",
+      "global": true
+    },
+    {
+      "match": "/** Here routes*/",
+      "position": "before",
+      "dir": "/views/dashboard.js",
+      "type": "f",
+      "params": [
+        "view_path"
+      ],
+      "name": "view_fragment",
+      "global": true
+    },
+    {
+      "match": "/** Here Menu*/",
+      "position": "after",
+      "dir": "/config/menu.config.js",
+      "type": "f",
+      "params": [
+        "view_path",
+        "title",
+        "fa_icon"
+      ],
+      "name": "view_menu",
+      "global": true
+    }
+  ]
+}
