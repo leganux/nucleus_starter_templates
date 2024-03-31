@@ -24,13 +24,15 @@
     "yaml",
     "lua"
   ],
-  "name": "nucleus_model_full_mvc_sql_generator",
-  "description": "this template allow you to create an generate DB models for Modules noSQL generator in full mode ",
+  "name": "nucleus_model_FULL_Modules_noSQL_generator",
+  "description": "this template allows you to create an generate DB models for Modules noSQL generator in full mode ",
   "functions_file": "functions.js",
   "structure_folder": "structure",
   "execFunctions": true,
   "overwrite": true,
-  "cmd": "",
+  "cmd": [
+    "npm i"
+  ],
   "packages": [
     "voca",
     "moment"
