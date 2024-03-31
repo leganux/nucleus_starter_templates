@@ -39,39 +39,42 @@ module.exports = {
 
             name = v.snakeCase(name.trim())
             customName = v.titleCase(customName.trim())
-            newType = 'DataTypes.STRING'
+
+            let newType = 'String'
             if (type.toLowerCase().trim() == 'number') {
-                newType = 'DataTypes.FLOAT'
+                newType = 'Number'
             }
             if (type.toLowerCase().trim() == 'int') {
-                newType = 'DataTypes.INTEGER'
+                newType = 'Number'
             }
             if (type.toLowerCase().trim() == 'decimal') {
-                newType = 'DataTypes.DECIMAL'
+                newType = 'Number'
             }
             if (type.toLowerCase().trim() == 'boolean') {
-                newType = 'DataTypes.BOOLEAN'
+                newType = 'Boolean'
             }
             if (type.toLowerCase().trim() == 'date') {
-                newType = 'DataTypes.DATE'
+                newType = 'Date'
             }
             if (type.toLowerCase().trim() == 'float') {
-                newType = 'DataTypes.FLOAT'
+                newType = 'Number'
             }
-            if (type.toLowerCase().trim() == 'uuid') {
-                newType = 'DataTypes.UUID'
+            if (type.toLowerCase().trim() == 'objectid') {
+                newType = 'Schema.Types.ObjectId'
+            }
+            if (type.toLowerCase().trim() == 'mixed') {
+                newType = 'Schema.Types.Mixed'
             }
 
-            let format = `
-         ${name}: {
-            type: ${newType},
-            allowNull: ${!mandatory},
-            field: '${name}',
-            defaultValue: ${defaultValue},
-            customName: '${customName}',
-            description: '${description}',
-            isPassword: ${isPassword}
-        },
+            let format = ` 
+            ${name}: {
+                type: ${newType},
+                required: ${mandatory},
+                customName: '${customName}',
+                description: '${description}',
+                isPassword: ${isPassword},
+                 default: ${defaultValue},
+            },
         `
 
             //** Important the return must be an object with info and template
@@ -102,7 +105,6 @@ module.exports = {
             let format = `
         router.use('/${api_path}', require('./{{_model_name_variable_}}.router'))
         `
-
             //** Important the return must be an object with info and template
             return {
                 success: true,
