@@ -2,14 +2,14 @@ let v = require('voca')
 let moment = require('moment')
 module.exports = {
     field_generator: async function ({
-                                         name,
-                                         description,
-                                         type,
-                                         customName,
-                                         mandatory,
-                                         defaultValue,
-                                         isPassword
-                                     }) {
+        name,
+        description,
+        type,
+        customName,
+        mandatory,
+        defaultValue,
+        isPassword
+    }) {
 
         try {
             console.log('Executing function field_generator at', moment())
@@ -32,10 +32,9 @@ module.exports = {
             if (!isPassword) {
                 isPassword = false
             }
-            if (!defaultValue || defaultValue.trim() == '') {
+            if (!defaultValue || defaultValue == '') {
                 defaultValue = undefined
             }
-
 
             name = v.snakeCase(name.trim())
             customName = v.titleCase(customName.trim())
@@ -93,7 +92,7 @@ module.exports = {
         }
     },
 
-    routes_name: async function ({api_path}) {
+    routes_name: async function ({ api_path }) {
         if (!api_path) {
             api_path = 'api/path'
         }
@@ -120,7 +119,7 @@ module.exports = {
             }
         }
     },
-    view_fragment: async function ({view_path}) {
+    view_fragment: async function ({ view_path }) {
         if (!view_path) {
             view_path = 'view/path'
         }
@@ -186,7 +185,7 @@ module.exports = {
             }
         }
     },
-    view_menu: async function ({view_path, title, fa_icon}) {
+    view_menu: async function ({ view_path, title, fa_icon }) {
         if (!view_path) {
             view_path = 'view/path'
         }
