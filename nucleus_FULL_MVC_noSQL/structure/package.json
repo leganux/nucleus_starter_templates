@@ -29,7 +29,7 @@
     "pug": "^3.0.2",
     "randomstring": "^1.3.0",
     "redis": "^4.6.13",
-    "tres-comas": "github:leganux/tres-comas-fk#d23dd00",
+    "tres-comas": "^3.0.3",
     "unpc": "^1.2.0",
     "uuid": "^9.0.1",
     "voca": "^1.4.1"

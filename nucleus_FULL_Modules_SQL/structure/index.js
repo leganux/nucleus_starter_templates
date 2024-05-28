@@ -13,43 +13,52 @@ const path = require('path')
 const http = require('http');
 
 const session = require('express-session');
-const RedisStore = require('connect-redis');
-const {createClient} = require('redis')
 
 
-let redisStore;
-let redisClient;
 
-if (process.env.REDIS_URL) {
-    redisClient = createClient()
-    redisClient.connect()
-    redisStore = new RedisStore({
-        client: redisClient,
-        prefix: "nucleus:",
-    })
+const { createClient } = require('redis');
+const RedisStore = require("connect-redis").default // Import as a class
 
-} else {
-    console.log("Redis is not available. Falling back to memory store.");
-}
+let redisClient = createClient({
+    host: 'localhost' || process.env.REDIS_HOST,
+    port: 6379 || process.env.REDIS_PORT
+});
+
+redisClient.connect().catch(function (e) {
+    console.error(e);
+    redisClient = false
+})
 
 let sessionMiddleware;
 
 if (redisClient) {
+    let redisStore = new RedisStore({
+        client: redisClient,
+        prefix: "nucleus:",
+    })
+
     sessionMiddleware = session({
-        secret: process.env.SESSION_SECRET || 'N7Cl3usSecret_',
-        resave: true,
-        saveUninitialized: true,
+        name: process.env.NAME_COOKIE || 'nucleus',
+        resave: false,
+        saveUninitialized: false,
         store: redisStore,
-        cookie: {secure: false} // Set to true if using HTTPS
+        secret: process.env.SESSION_SECRET || 'N7Cl3usSecret_',
+        cookie: {
+            maxAge: 60 * 60 * 24 * 10,
+            sameSite: true,
+            secure: false
+        }
     });
 } else {
     sessionMiddleware = session({
+        name: process.env.name_cookie || 'nucleus',
         secret: process.env.SESSION_SECRET || 'N7Cl3usSecret_',
         resave: true,
         saveUninitialized: true,
-        cookie: {secure: false} // Set to true if using HTTPS
+        cookie: { secure: false } // Set to true if using HTTPS
     });
 }
+
 
 app.use(sessionMiddleware);
 

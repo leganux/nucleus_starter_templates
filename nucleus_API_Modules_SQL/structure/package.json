@@ -31,7 +31,7 @@
     "redis": "^4.6.13",
     "sequelize": "^6.37.1",
     "sqlite3": "^5.1.7",
-    "tres-comas": "github:leganux/tres-comas-fk#d23dd00",
+    "tres-comas": "^3.0.3",
     "unpc": "^1.2.0",
     "uuid": "^9.0.1",
     "voca": "^1.4.1"
