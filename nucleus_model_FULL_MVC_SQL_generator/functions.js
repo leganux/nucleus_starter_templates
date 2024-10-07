@@ -32,7 +32,7 @@ module.exports = {
             if (!isPassword) {
                 isPassword = false
             }
-            if (!defaultValue || defaultValue.trim() == '') {
+            if (!defaultValue || defaultValue?.trim() == '') {
                 defaultValue = undefined
             }
 
